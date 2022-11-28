@@ -124,7 +124,7 @@
                             <td> <%= p.getCategorie()%></td>
                             
                                     
-                            <td><a href="./DeleteProduit?id=<%= p.getId() %>"> Supprimer</td>
+                            <td><a href="./DeleteProduit?id=<%= p.getId() %>"> Supprimer</a></td>
                         </tr>
                         
                         <%}%>
