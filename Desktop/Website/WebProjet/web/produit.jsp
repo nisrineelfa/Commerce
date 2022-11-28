@@ -1,5 +1,3 @@
-
-
 <%@page import="entities.Produit"%>
 <%@page import="service.ProduitService"%>
 <%@page import="entities.Categorie"%>
@@ -124,7 +122,7 @@
                             <td> <%= p.getCategorie()%></td>
                             
                                     
-                            <td><a href="./DeleteProduit?id=<%= p.getId() %>"> Supprimer</a></td>
+                            <td><a href="./DeleteProduit?id=<%= p.getId() %>"> Supprimer</td>
                         </tr>
                         
                         <%}%>

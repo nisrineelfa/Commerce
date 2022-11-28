@@ -47,7 +47,7 @@
                         <tr>
                              <th>ID</th>
                             <th>Nom</th>
-                           <th>Supprimer</th>
+                        
                         </tr>
                     </thead>
                     <tbody>
@@ -58,8 +58,9 @@
                         <tr>
                             <td><%= c.getId() %></td>
                             <td><%= c.getNom() %></td>
+                             
                             
-                            <td><a href="./DeleteCategorie?id=<%= c.getId() %>"> Supprimer</td>
+                       
                         </tr>
                         
                         <%}%>

@@ -7,6 +7,7 @@ package service;
 
 import dao.IDao;
 import entities.Categorie;
+
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -118,24 +119,33 @@ public class CategorieService implements IDao<Categorie> {
     }
     
     public Categorie findByNom(String nom) {
-        Session s = null;
+        Session session = null;
         Transaction tx = null;
-        Categorie categorie = null;
+          Categorie categorie = null;
+        
+       
+      
         try {
-            s = HibernateUtil.getSessionFactory().openSession();
-            tx = s.beginTransaction();
-            categorie = ((List<Categorie>) s.createQuery("select a from categorie a where a.nom = :nom").setParameter("nom", nom).list()).get(0);
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            Query a=session.createQuery("from Categorie where nom= ?");
+            a.setString(0,nom);
+            categorie = (Categorie)a.uniqueResult();
             tx.commit();
+                    
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();
             }
         } finally {
-            if (s != null) {
-                s.close();
-            }
+          
+                session.close();
+            
         }
+        
         return categorie;
+        
+      
 
     }
     

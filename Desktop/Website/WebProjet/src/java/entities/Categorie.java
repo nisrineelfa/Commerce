@@ -75,4 +75,9 @@ public class Categorie {
         this.nom = nom;
     }
 
+    @Override
+    public String toString() {
+        return "Categorie{" + "id=" + id + ", nom=" + nom + ", produits=" + produits + ", categories=" + categories + ", categorieMere=" + categorieMere + '}';
+    }
+
 }

@@ -45,7 +45,7 @@
                         <tr>
                              <th>ID</th>
                             <th>Nom</th>
-                           <th>Supprimer</th>
+                          
                         </tr>
                     </thead>
                     <tbody>
@@ -57,7 +57,6 @@
                             <td><%= m.getId() %></td>
                             <td><%= m.getNom() %></td>
                             
-                            <td><a href="./DeleteEMarque?id=<%= m.getId() %>"> Supprimer</td>
                         </tr>
                         
                         <%}%>

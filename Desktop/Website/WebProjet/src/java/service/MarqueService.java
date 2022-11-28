@@ -124,24 +124,31 @@ public class MarqueService implements IDao<Marque> {
         return marques;
     }
 
-  public Marque findByNom(String nom) {
-        Session s = null;
+ public Marque findByNom(String nom) {
+        Session session = null;
         Transaction tx = null;
-        Marque marque = null;
+          Marque marque = null;
+        
+       
+      
         try {
-            s = HibernateUtil.getSessionFactory().openSession();
-            tx = s.beginTransaction();
-            marque = ((List<Marque>) s.createQuery("select a from marque a where a.nom = :nom").setParameter("nom", nom).list()).get(0);
+            session = HibernateUtil.getSessionFactory().openSession();
+            tx = session.beginTransaction();
+            Query a=session.createQuery("from Marque where nom= ?");
+            a.setString(0,nom);
+            marque = (Marque)a.uniqueResult();
             tx.commit();
+                    
         } catch (HibernateException e) {
             if (tx != null) {
                 tx.rollback();
             }
         } finally {
-            if (s != null) {
-                s.close();
-            }
+          
+                session.close();
+            
         }
+        
         return marque;
 
     }

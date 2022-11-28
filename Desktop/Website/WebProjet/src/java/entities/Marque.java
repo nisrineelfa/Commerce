@@ -57,6 +57,11 @@ public class Marque implements Serializable {
         this.nom = nom;
     }
 
+    @Override
+    public String toString() {
+        return "Marque{" + "id=" + id + ", nom=" + nom + ", produits=" + produits + '}';
+    }
+
    
 
     

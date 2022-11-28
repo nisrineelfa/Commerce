@@ -35,7 +35,9 @@ public class DeleteProduit extends HttpServlet {
             throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         es.delete(es.findById(id));
-        response.sendRedirect("");
+        
+     
+        response.sendRedirect("produit.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
